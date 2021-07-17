@@ -16,6 +16,7 @@
         />
 
     <Button
+        android:id="@+id/btnToDana"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send your payment here"
@@ -23,6 +24,7 @@
         />
 
     <Button
+        android:id="@+id/btnToWa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send your proof of payment here"
