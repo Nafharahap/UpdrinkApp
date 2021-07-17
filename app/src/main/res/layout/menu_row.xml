@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="menu"
+            type="com.mobcom.updrinkapps.models.Menu" />
+        
+        <variable
+            name="menuInterface"
+            type="com.mobcom.updrinkapps.adapters.MenuListAdapter.MenuInterface" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{() -> menuInterface.onItemClick(menu)}">
+
+        <LinearLayout
+            android:layout_width="180dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:background="@drawable/recycler_bg"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/menu_image"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/cappuccino"
+                android:productImage="@{menu.image}" />
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/menu_image"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:paddingBottom="2dp"
+                    android:paddingTop="2dp">
+                    
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/menu_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-black"
+                            android:textSize="12sp"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            android:text="@{menu.name}" />
+
+                        <TextView
+                            android:id="@+id/menu_category"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10sp"
+                            android:text="@{menu.category}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                            />
+
+                        <TextView
+                            android:id="@+id/menu_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="10sp"
+                            android:text="@{`IDR ` + Integer.valueOf(menu.price)}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+                    </LinearLayout>
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:layout_weight="1"
+                    android:gravity="center">
+                    
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/addToCartButton"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="35dp"
+                            android:background="@drawable/ic_baseline_shopping_cart_24"
+                            android:enabled="true"
+                            android:onClick="@{() -> menuInterface.addItem(menu)}"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

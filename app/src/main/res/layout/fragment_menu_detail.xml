@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="menuViewModel"
+            type="com.mobcom.updrinkapps.viewmodels.MenuViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.ProductDetailFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/detail_menu_img"
+                android:layout_width="420dp"
+                android:layout_height="420dp"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cappuccino"
+                android:productImage="@{menuViewModel.menu.image}"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+
+            <TextView
+                android:id="@+id/detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/updrinkcolor"
+                android:text="@{menuViewModel.menu.name}"
+                android:textSize="32sp"
+                android:layout_marginLeft="16dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/detail_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:textSize="18sp"
+                android:text="@{menuViewModel.menu.category}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginTop="8dp"
+                android:textSize="22sp"
+                android:text="@{`IDR ` + Integer.valueOf(menuViewModel.menu.price)}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="@{menuViewModel.menu.description}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+            
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/addToCartButton"
+                    android:layout_width="400dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/add_to_cart_bg"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:textSize="18sp"
+                    android:enabled="true"
+                    android:text="Add to cart"
+                    android:fontFamily="sans-serif-black"
+                    android:onClick="@{() -> menuViewModel.addItemToCart(menuViewModel.menu)}"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>
+
