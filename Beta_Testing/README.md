@@ -8,7 +8,7 @@ Saturday, 17 July 2021
 
 Beta testing conducted by :
 
--  Name: Abdullah Nabil
+-  Name: Abdullah Nabil Alhabib
 -  Occupation: College Student
 
 ## Reason
